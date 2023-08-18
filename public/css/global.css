@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet');
+
+/* 메인 색 설정 */
+:root {
+   --primary-color : rgb(0, 78, 162);
+   --secondary-color : rgb(71, 116, 185);
+   --fontPrimary-color : rgb(181, 182, 182);
+   --fontSecondary-color : rgb(200, 177, 88);
+}
+
+* { 
+   box-sizing: border-box;
+}
+
+/* 마우스 드래그시 배경색 설정 */
+
+*::selection {
+   background: var(--primary-color);
+   color: white;
+}
+
+/* 스크롤바 제거 */
+
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+   color: black;
+   overflow-x: hidden;
+   scrollbar-width: none; /* FireFox */
+}
+
+/* 스크롤바 제거 (스크롤 기능 유지) */
+body {
+   -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Webkit browsers */
+body::-webkit-scrollbar {
+   display: none;
+}
+a {
+   text-decoration: none;
+   color: black;
+}
+
+ul { 
+   list-style-type: none;
+}
