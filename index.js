@@ -10,7 +10,9 @@ const config = require('./config')
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
-const port = 5000
+const port = 5300
+
+const tourismRouter = require('./BackEnd/router/tourism')
 
 const corsOptions = {
     origin : 'http://127.0.0.1:5500',// 해당 URL 주소만 요청을 허락함
@@ -27,10 +29,15 @@ app.use(express.json()) // request body 파싱
 app.use(logger('tiny')) // logger 설정
 
 app.use(express.static(path.join( __dirname, 'public')))
+app.use('/', tourismRouter)
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname,'index.html'))
-})
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname,'index.html'))
+// })
+
+// app.get('/:id', (req, res) => {
+//     res.sendFile(path.join(__dirname,'info.html'))
+// })
 
 app.get('/error', (req, res, next) => {
     throw new Error('서버에 치명적인 에러가 발생했습니다.')

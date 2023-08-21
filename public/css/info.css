@@ -1,0 +1,16 @@
+@import url('./global.css');
+@import url('./header.css');
+@import url('./footer.css');
+
+section .detail-container .detail .detail-info {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-flow: column;
+    width: 100%;
+    height: 300px;
+}
+
+section .detail-container .detail .detail-info span:nth-child(0) {
+
+}

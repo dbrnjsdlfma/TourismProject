@@ -9,7 +9,7 @@
     <!-- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' /> -->
     <!-- fullcalendar 언어 CDN -->
     <!-- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script> -->
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/public/css/home.css">
 </head>
 <style>
   /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
@@ -21,7 +21,7 @@
 </style>
 <body>
     <header>
-        <a href="#" class="logo"><i class="fa-brands fa-blogger"></i>Yg Tourism</a>
+        <a href="/" class="logo"><i class="fa-brands fa-blogger"></i>Yg Tourism</a>
         <div class="menu">
             <nav class="navbar">
               <div class="search-container">
@@ -67,8 +67,10 @@
         <div id='calendar'></div>
       </div>
     </section>
-    <section>
+    <section class="cardList-container">
+      <h2>대전의 추천 관광지</h2>
       <div class="cardList"></div>
+      <button class="cardList-btn" id="cardList-btn">더 보기</button>
     </section>
     <section>
       <div class=""></div>
@@ -81,8 +83,8 @@
           <span>Copyright © 2023 Yg Tourism. All rights reserved.</span>
         </div>
         <div class="footer-img">
-          <a href="http://ccl.cckorea.org/about/"><img src="/img/200_by.png" alt="https://ccl.cckorea.org/about/"></a>
-          <a href="https://www.kogl.or.kr/info/license.do"><img src="/img/img_opentype01.jpg" alt="https://www.kogl.or.kr/info/license.do"></a>
+          <a href="http://ccl.cckorea.org/about/"><img src="/public/img/200_by.png" alt="https://ccl.cckorea.org/about/"></a>
+          <a href="https://www.kogl.or.kr/info/license.do"><img src="/public/img/img_opentype01.jpg" alt="https://www.kogl.or.kr/info/license.do"></a>
         </div>        
         <div class="footer-icons">
           <a href="https://ko-kr.facebook.com/" class="fab fa-facebook-f"></a>
@@ -94,7 +96,7 @@
       </div>
     </footer>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-    <script src="/js/calendar.js"></script>
-    <script src="/js/home.js"></script>
+    <script src="/public/js/calendar.js"></script>
+    <script src="/public/js/home.js"></script>
 </body>
 </html>

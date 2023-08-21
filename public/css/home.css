@@ -102,9 +102,37 @@
   background-color: white;
 }
  /* 카드리스트 */
+.cardList-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cardList-container>h2 {
+  margin-top: 0.5rem;
+  font-weight: 900;
+}
 section .cardList {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    flex: 1 1 25%;
+}
+.cardList-btn {
+  width: 10rem;
+  height: 3rem;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  color: white;
+  font-size: 1.5rem;
+  margin: 3rem 0;
+  cursor: pointer;
+}
+.cardList-btn:hover {
+  background-color: var(--secondary-color);
+  /* color: black; */
+}
+.hide {
+  display: none;
 }
