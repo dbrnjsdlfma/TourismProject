@@ -26,4 +26,12 @@ router.get('/:id', async (req, res, next) => {
     // res.sendFile(path.join(__dirname,'../../public/html/info.html'))
 })
 
+router.get('/like', async (req, res, next) => {
+    const tourspotList = await Tourspot.find()
+    const likeTourspotList = tourspotList.sort((d1, d2) => d1.likeNo - d2.likeNo)
+    console.log(tourspotList)
+    console.log(likeTourspotList)
+    res.json(likeTourspotList)
+})
+
 module.exports = router

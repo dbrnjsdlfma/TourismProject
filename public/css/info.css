@@ -2,15 +2,49 @@
 @import url('./header.css');
 @import url('./footer.css');
 
-section .detail-container .detail .detail-info {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    flex-flow: column;
-    width: 100%;
-    height: 300px;
+
+section .detail-container>h2 {
+    padding: 1rem;
+    border-bottom: 2px solid black;
+    text-align: center;
+    font-size: 3rem;
 }
 
-section .detail-container .detail .detail-info span:nth-child(0) {
+section .detail-container .detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 3px 1px #00000055;
+}
 
+section .detail-container .detail>strong {
+    margin: 3rem;
+}
+section .detail-container .detail .detail-image {
+    width: 70%;
+    margin: 2rem 0;
+}
+section .detail-container .detail .detail-image>img {
+    width: 100%;
+    box-shadow: 0px 0px 8px 1px #00000055;
+}
+section .detail-container .detail .detail-info {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 5rem;
+}
+section .detail-container .detail .detail-info ul {
+    list-style: disc;
+    margin: 0 9rem;
+    padding: 0;
+}
+section .detail-container .detail .detail-info ul li {
+    margin: 2rem 2rem;
+}
+.map {
+    margin: 3rem;
+    box-shadow: 0px 0px 8px 1px #00000055;
 }

@@ -62,6 +62,10 @@ const tourismsSchema = new Schema({ // 스키마 정의
         type : String ,
         trim : true , 
     },
+    likeNo: {
+        type : Number ,
+        trim : true ,
+    },
 })
 
 const Tourspot = mongoose.model('tourismData', tourismsSchema, 'tourismData')

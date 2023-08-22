@@ -3,9 +3,9 @@ document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk
 
 window.onload=function() {
   let offset = 0
-
+  let tourismData
     // 관광지 카드 툴
-    function cardTool(tourismImage, tourismTitle, tourismSumm, tourismAddr, tourspotDtlAddr, tourism_Time, tourism_No, tourism_id, i) { 
+    function cardTool(tourismImage, tourismTitle, tourismSumm, tourismAddr, tourspotDtlAddr, tourism_Time, tourism_No, tourism_likeNo, i) { 
         // console.log(localStorage.getItem('title' , tourismTitle))
         // OnClick="location.href ='http://127.0.0.1:5500/public/html/info.html'"
         return `
@@ -28,7 +28,13 @@ window.onload=function() {
               </div>
               <div class="front">
                 <div class="front-content">
-                  <small class="badge" id="tourism-title">${tourismTitle}</small>
+                  <div class="front-title">
+                    <small class="badge" id="tourism-title">${tourismTitle}</small>
+                    <div class="front-like">
+                      <span class="material-symbols-outlined">thumb_up</span>
+                      <span>${tourism_likeNo}</span>
+                    </div>
+                  </div>
                   <div class="map" id="staticMap-${i}" style="width:280px;height:200px;"></div>
                     <div></div>
                     <div class="title">
@@ -51,7 +57,7 @@ window.onload=function() {
     // 관광지 API 데이터 
     async function tourismApi() {
         const tourismUrl = await fetch('http://127.0.0.1:5300')
-        const tourismData = await tourismUrl.json()
+        tourismData = await tourismUrl.json()
         console.log(tourismData)
         for(let i=offset; i<offset+4; i++) {
           if(i >= tourismData.length) {
@@ -70,32 +76,16 @@ window.onload=function() {
             const tourspotDtlAddr = tourismData[i].tourspotDtlAddr // 신 주소
             const tourism_Time = tourismData[i].mngTime // 개장시간
             const tourism_No = tourismData[i].refadNo // 전화번호
-            const tourism_id = tourismData[i]._id
+            const tourism_likeNo = tourismData[i].likeNo // 좋아요 수
             myStorage = window.localStorage;
             localStorage.clear()
-            // function setStorageItem (name, item) {
-            //   localStorage.setItem(name, JSON.stringify(item))
-            // }
-            // setStorageItem('tourism', tourismData); 
-
-            // localStorage.setItem(`tourism-${i}`, JSON.stringify({title : tourismTitle, sum: tourismSum, addr: tourismAddr,
-            // dtaddr: tourspotDtlAddr, time: tourism_Time, number: tourism_No, image: tourismImage}))
-
-            // localStorage.setItem(`title-${i}` , tourismTitle)
-            // localStorage.setItem(`sum-${i}` , tourismSum)
-            // localStorage.setItem(`addr-${i}` , tourismAddr)
-            // localStorage.setItem(`dtaddr-${i}` , tourspotDtlAddr)
-            // localStorage.setItem(`time-${i}` , tourism_Time)
-            // localStorage.setItem(`number-${i}` , tourism_No)
-            // localStorage.setItem(`image-${i}` , tourismImage)
-
             // const tourismTourspotZip = tourismData.response.body.items[i].tourspotZip
             // const url = await fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${tourismTourspotZip},KR&appid=a934b371a16cc8f8933fd8f1ce2c34d5`)
             // const urlData = await url.json()
 
             const tourismLat = tourismData[i].mapLat
             const tourismLot = tourismData[i].mapLot
-            cardList.innerHTML += cardTool(tourismImage, tourismTitle, tourismSum, tourismAddr, tourspotDtlAddr, tourism_Time, tourism_No, tourism_id, i)
+            cardList.innerHTML += cardTool(tourismImage, tourismTitle, tourismSum, tourismAddr, tourspotDtlAddr, tourism_Time, tourism_No, tourism_likeNo, i)
 
             var markerPosition  = new kakao.maps.LatLng(tourismLat, tourismLot); 
 
@@ -140,4 +130,18 @@ window.onload=function() {
     scrollUp.addEventListener('click' , (e) => {
       window.scrollTo({top : 0 , behavior: 'smooth'})
     })
+
+    function search() {
+      const searchKeyword = document.querySelector('.keyword')
+      for(let i=0; i<tourismData.length; i++) {
+        if(tourismData[i].tourspotNm.includes(searchKeyword.value)) {
+          localStorage.setItem('card-info', JSON.stringify(`${tourismData[i].tourspotNm}`))
+          window.location.href = 'http://127.0.0.1:5500/public/html/info.html'
+        }
+      }
+    }
+    
+    const searchBtn = document.getElementById('search-btn')
+    searchBtn.addEventListener('click', search)
 }
+
