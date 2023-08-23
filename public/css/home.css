@@ -64,8 +64,8 @@
 .announcement-container ul > li > span {
   font-size: .8rem;
 }
-.announcement-container ul > li:nth-child(1) {
-  background-image: url('https://i.namu.wiki/i/XwQP-El8dJCH6fx-iPv0TyS7c9SaT2m1XKMCy1Wb8qs07yxjYVb95Wt-elL5lDsSwR7X6jPlwwTUqBljMAD9gajP43N9kkztVkwN4yK8mpldLLyJpxU5EtcgrL4hPpQ5A-nNPM5iruzkeSvTQNOsbw.webp');
+/* .announcement-container ul > li:nth-child(1) {
+  background-image: url('https://cdn.ggilbo.com/news/photo/202304/970888_805093_5422.png');
   background-size: cover;
   color: white;
 }
@@ -75,7 +75,7 @@
   color: white;
 }
 .announcement-container ul > li:nth-child(3) {
-  background-image: url('https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/362270806_816892629871692_8825997364789779947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=GOyLAqVL9V8AX9uq9D0&_nc_ht=scontent-ssn1-1.xx&oh=00_AfAs3_W4xvUXhneKYpsFhcBhg9Dhl6GBzEUfXOaxbq9VYw&oe=64E4BDE7');
+  background-image: url('https://korean.visitkorea.or.kr/kfes/upload/contents/db/a8033994-bf08-4795-8ffb-a3bf947547c8_1.jpg');
   background-size: cover;
   color: white;
 }
@@ -83,6 +83,10 @@
   background-image: url('https://minio.nculture.org/amsweb-opt/multimedia_assets/59/30113/16040/c/013_2019-%EC%9C%A0%EC%84%B1%EC%98%A8%EC%B2%9C%EB%AC%B8%ED%99%94%EC%B6%95%EC%A0%9C-full-size.jpg');
   background-size: cover;
   color: white;
+} */
+.announcement-container ul > li img {
+  width: 100%;
+  height: 100%;
 }
 .banner-container {
     width: 50%;

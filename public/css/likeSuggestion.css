@@ -1,3 +1,81 @@
 @import url('./global.css');
 @import url('./header.css');
 @import url('./footer.css');
+
+
+.likeList-container>h1 {
+    margin-left: 3rem;
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+    padding: 1rem;
+}
+
+.likeList-card {
+    display: flex;
+    width: 80%;
+    border-bottom: 1px solid #e3e3e3;
+    /* border-top: 1px solid #e3e3e3; */
+    margin: 0 auto;
+}
+
+.likeList-cardImage  {
+    width: 70%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.likeList-cardImage a {
+    width: 70%;
+    height: 80%;
+}
+.likeList-cardImage img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.likeList-cardImage img:hover {
+    box-shadow: 0px 0px 8px 3px #606060;
+}
+.likeList-cardBody {
+    margin-top: 2rem;
+    width: 100%;
+}
+.likeList-cardBody>h2{
+    margin: 0;
+    padding: 0;
+}
+.likeList-cardBody-like {
+    display: flex;
+    justify-content: space-between;
+}
+.likeList-cardBody-like>h2 {
+    margin: 0;
+    padding: 0;
+}
+.likeList-cardBody-likeBox {
+    display: flex;
+    margin-right: 8rem;
+}
+.likeList-cardBody-likeBox>span:nth-child(1) {
+    /* color: var(--primary-color); */
+    margin-right: .5rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.likeList-cardBody-likeBox>span:nth-child(2) {
+    margin: auto;
+}
+.likeList-cardBody-container {
+    display: flex;
+    flex-direction: column;
+}
+.likeList-cardBody-container span {
+    margin-top: 1rem;
+}
+.on {
+    background-color: var(--secondary-color);
+    color: white;
+}

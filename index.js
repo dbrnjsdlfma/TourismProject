@@ -12,6 +12,7 @@ const fs = require('fs')
 const path = require('path')
 const port = 5300
 
+app.use(express.json())
 const tourismRouter = require('./BackEnd/router/tourism')
 
 const corsOptions = {
@@ -27,6 +28,8 @@ mongoose.connect(config.MONGODB_URL)
 app.use(cors(corsOptions)) // CORS 설정
 app.use(express.json()) // request body 파싱
 app.use(logger('tiny')) // logger 설정
+
+app.use(express.urlencoded({extended:true}))
 
 app.use(express.static(path.join( __dirname, 'public')))
 app.use('/', tourismRouter)
@@ -51,6 +54,6 @@ app.use((err, req, res, next) => { // 서버내부 오류처리
     console.error(err.stack)
     res.status(500).send('Internal Server Error')
 })
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log('server is runnig on port 5000...')
 })

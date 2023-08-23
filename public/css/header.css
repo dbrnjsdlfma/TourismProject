@@ -85,5 +85,5 @@ header .navbar .search-container .keyword:focus {
      margin-right: 1rem;
  }
  header .logo:hover { 
-   color: var(--fontSecondary-color);
+   color: #A5C9FF;
  }

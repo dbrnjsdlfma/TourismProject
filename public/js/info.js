@@ -70,16 +70,4 @@ window.onload = function() {
 
     }
     tourismApi()
-
-    function search() {
-        const searchKeyword = document.querySelector('.keyword')
-        for(let i=0; i<tourismData.length; i++) {
-          if(tourismData[i].tourspotNm.includes(searchKeyword.value)) {
-            localStorage.setItem('card-info', JSON.stringify(`${tourismData[i].tourspotNm}`))
-            window.location.href = 'http://127.0.0.1:5500/public/html/info.html'
-          }
-        }
-      }
-      const searchBtn = document.getElementById('search-btn')
-      searchBtn.addEventListener('click', search)
 }

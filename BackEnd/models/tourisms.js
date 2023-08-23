@@ -68,5 +68,5 @@ const tourismsSchema = new Schema({ // 스키마 정의
     },
 })
 
-const Tourspot = mongoose.model('tourismData', tourismsSchema, 'tourismData')
+const Tourspot = mongoose.model('tourismData', tourismsSchema)
 module.exports = Tourspot
