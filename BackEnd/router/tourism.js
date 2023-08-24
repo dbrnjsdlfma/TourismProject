@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const Tourspot = require('../models/tourisms')
 const expressAsyncHandler = require('express-async-handler')
 // const { generateToken, isAuth } = require('../../auth')
@@ -7,20 +8,36 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
+const { v4: uuidv4 } = require('uuid');
+// const cookie = require('cookie')
+const cookieParser = require('cookie-parser');
 const requestIp = require('request-ip');
-
 const router = express.Router()
 
+app.use(session({
+    resave: true,
+    saveUninitialized: true ,
+    secret: 1234,
+    cookie : {
+        httpOnly: false,
+        secure : false,
+        maxAge : 60 * 60 * 24 * 1000,
+    },
+    name: 'session-cookie',
+}))
+
 app.use(express.json()) // request body 파싱
+app.use(cookieParser())
 
 router.get('/like' , async (req, res, next) => {
     try {
         const tourspotList = await Tourspot.find()
         const likeTourspotList = tourspotList.sort((d1, d2) => d2.likeNo - d1.likeNo)
         const ip = requestIp.getClientIp(req);
-        console.log(ip)
-        // console.log(req.body)
-        res.json(likeTourspotList)
+        const uuid = uuidv4()
+        console.log(uuid)
+        res.cookie('like', uuid, {maxAge : 60 * 60 * 24 * 1000, path: 'http://127.0.0.1:5300/like', httpOnly: false })
+        res.json({likeTourspotList, uuid})
     } catch(err) {
         console.log(err);
     }
@@ -29,10 +46,19 @@ router.get('/like' , async (req, res, next) => {
 router.post('/like' , async (req, res, next) => {
     try {
         const tourspotListOne = await Tourspot.findOne({
-            tourspotNm : req.body.key
+            tourspotNm : req.body.tourspotNm
         })
-        console.log(req.body.key)
-        console.log(tourspotListOne)
+        // const cookies = req.headers.cookie
+        // console.log(cookies)
+        // const cookie = req.body.cookie
+        // console.log(cookie)
+        tourspotListOne.likeNo = req.body.likeNo
+        const updateTourspot = await tourspotListOne.save()
+        res.json({
+            code: 200,
+            messate : 'success',
+            updateTourspot
+        })
     } catch(err) {
         console.log(err)
     }
@@ -41,9 +67,7 @@ router.post('/like' , async (req, res, next) => {
 
 router.get('/' , async (req, res, next) => {
     const tourspotList = await Tourspot.find()
-    // console.log(tourspotList)
     res.json(tourspotList)
-    // res.sendFile(path.join(__dirname,'../../index.html'))
 })
 
 router.get('/:id' , async (req, res, next) => {

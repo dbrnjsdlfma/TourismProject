@@ -1,0 +1,18 @@
+@import url('./global.css');
+@import url('./header.css');
+@import url('./footer.css');
+
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+table {
+    width: 80%;
+    border: 1;
+}
+.write {
+    background-color: var(--primary-color);
+}

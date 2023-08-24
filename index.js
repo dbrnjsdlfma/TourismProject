@@ -14,6 +14,7 @@ const port = 5300
 
 app.use(express.json())
 const tourismRouter = require('./BackEnd/router/tourism')
+const announcementRouter = require('./BackEnd/router/announcement')
 
 const corsOptions = {
     origin : 'http://127.0.0.1:5500',// 해당 URL 주소만 요청을 허락함
@@ -33,6 +34,7 @@ app.use(express.urlencoded({extended:true}))
 
 app.use(express.static(path.join( __dirname, 'public')))
 app.use('/', tourismRouter)
+app.use('/announcement' , announcementRouter)
 
 // app.get('/', (req, res) => {
 //     res.sendFile(path.join(__dirname,'index.html'))
