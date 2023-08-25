@@ -44,25 +44,33 @@ router.get('/like' , async (req, res, next) => {
 })
 
 router.post('/like' , async (req, res, next) => {
-    try {
-        const tourspotListOne = await Tourspot.findOne({
-            tourspotNm : req.body.tourspotNm
-        })
-        // const cookies = req.headers.cookie
-        // console.log(cookies)
-        // const cookie = req.body.cookie
-        // console.log(cookie)
-        tourspotListOne.likeNo = req.body.likeNo
-        const updateTourspot = await tourspotListOne.save()
-        res.json({
-            code: 200,
-            messate : 'success',
-            updateTourspot
-        })
-    } catch(err) {
-        console.log(err)
+    const tourspotListOne = await Tourspot.findOne({
+        tourspotNm : req.body.tourspotNm
+    })
+    const uuid = req.body.uuid
+    console.log(uuid)
+    if(tourspotListOne.likePeple.length === 0) {
+        tourspotListOne.likePeple[0] = uuid
+    } else {
+        for(let i=0; i<tourspotListOne.likePeple.length; i++){
+            if(!tourspotListOne.likePeple.includes(uuid)) {
+                tourspotListOne.likePeple.push(uuid)
+                break;
+            }
+             else {
+                tourspotListOne.likePeple.pop(uuid)
+                break;
+            }
+        }
     }
-
+    console.log(tourspotListOne.likePeple)
+    tourspotListOne.likeNo = req.body.likeNo
+    const updateTourspot = await tourspotListOne.save()
+    return res.json({
+        code: 200,
+        messate : 'success',
+        updateTourspot
+    })
 })
 
 router.get('/' , async (req, res, next) => {

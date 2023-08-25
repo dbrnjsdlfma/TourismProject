@@ -3,7 +3,8 @@
 @import url('./footer.css');
 @import url('./card.css');
 /* html {
-    background-color: black;
+  background-image: url('../img/sky.jpg');
+  background-size: cover;
 } */
 .bg {
     width: 100%;
@@ -58,32 +59,15 @@
   text-overflow: ellipsis;
   white-space: nowrap; */
 }
+.announcement-container ul li:hover {
+  box-shadow: 0 0 .2rem rgba(0, 0, 0, .3);
+}
 .announcement-container ul > li > a {
   height: 50%;
 }
 .announcement-container ul > li > span {
   font-size: .8rem;
 }
-/* .announcement-container ul > li:nth-child(1) {
-  background-image: url('https://cdn.ggilbo.com/news/photo/202304/970888_805093_5422.png');
-  background-size: cover;
-  color: white;
-}
-.announcement-container ul > li:nth-child(2) {
-  background-image: url('https://www.dscwd.or.kr/app/dubu_board/docs/imgs/m/lg_m16524088986860_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg');
-  background-size: cover;
-  color: white;
-}
-.announcement-container ul > li:nth-child(3) {
-  background-image: url('https://korean.visitkorea.or.kr/kfes/upload/contents/db/a8033994-bf08-4795-8ffb-a3bf947547c8_1.jpg');
-  background-size: cover;
-  color: white;
-}
-.announcement-container ul > li:nth-child(4) {
-  background-image: url('https://minio.nculture.org/amsweb-opt/multimedia_assets/59/30113/16040/c/013_2019-%EC%9C%A0%EC%84%B1%EC%98%A8%EC%B2%9C%EB%AC%B8%ED%99%94%EC%B6%95%EC%A0%9C-full-size.jpg');
-  background-size: cover;
-  color: white;
-} */
 .announcement-container ul > li img {
   width: 100%;
   height: 100%;

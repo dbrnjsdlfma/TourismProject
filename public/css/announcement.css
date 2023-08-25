@@ -5,14 +5,47 @@
 
 
 .container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
-
-table {
+.container h2 {
     width: 80%;
-    border: 1;
+    margin: 2rem auto;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    border-top: 2px solid #585858;
+    border-bottom: 2px solid #585858;
+    text-align: center;
+    margin: 2rem auto;
+}
+table thead {
+    border: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+    background-color: beige;
+    font-size: 1.2rem;
+}
+table thead td {
+    padding: 10px
+}
+table tbody td {
+    padding: 10px;
 }
 .write {
+    display: none;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
     background-color: var(--primary-color);
+    border: none;
+    margin: 1rem auto;
+    position: relative;
+    left: 90%;
+    cursor: pointer;
+}
+.write a {
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
 }

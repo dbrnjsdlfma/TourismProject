@@ -38,3 +38,11 @@ const announcementsSchema = new Schema({ // 스키마 정의
 
 const Announcement = mongoose.model('announcements', announcementsSchema)
 module.exports = Announcement
+
+// const anno = new Announcement({
+//     announcementNo : 3 ,
+//     announcementTitle : '공지사항 3' ,
+//     announcementContents : '공지사항 테스트 입니다', 
+//     announcementPeple : 'admin' ,
+// })
+// anno.save()

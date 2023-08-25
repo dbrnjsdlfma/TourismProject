@@ -15,7 +15,7 @@ window.onload = function(){
                 <div class="likeList-cardBody-like">
                     <h2>${tourismApiData.likeTourspotList[i].tourspotNm}</h2>
                     <div class="likeList-cardBody-likeBox">
-                        <span class="material-symbols-outlined" id="like">thumb_up</span>
+                        <span class="material-symbols-outlined" id="like-${i}">thumb_up</span>
                         <span>${tourismApiData.likeTourspotList[i].likeNo}</span>
                     </div>
                 </div>
@@ -34,19 +34,41 @@ window.onload = function(){
         const tourismApiUrl = await fetch('http://localhost:5300/like')
         tourismApiData = await tourismApiUrl.json()
         // console.log(tourismApiData.likeTourspotList)
-        console.log(tourismApiData.uuid)
-        localStorage.setItem('test',JSON.stringify(tourismApiData.uuid))
-        sessionStorage.setItem('test',JSON.stringify(tourismApiData.uuid))
         const likeListBox = document.querySelectorAll('.likeList-box')
+        const localGetItem = localStorage.getItem('localtest')
+        // console.log(localGetItem)
+        const sessionGetItem = sessionStorage.getItem('sessiontest')
+        // console.log(sessionGetItem)
         for(let i=0; i<4; i++) {
             likeListBox[i].innerHTML += listCardTool(i)
+            for(let j=0; j<tourismApiData.likeTourspotList[i].likePeple.length; j++) {
+                if(tourismApiData.likeTourspotList[i].likePeple[j] === localGetItem) {
+                    const likeBtn = document.getElementById(`like-${i}`)
+                    likeBtn.classList.add('on')
+                    console.log(likeBtn)
+                }
+            }
         }
-        const testItem = localStorage.getItem('test')
-        console.log(testItem)
-        const sessionItem = sessionStorage.getItem('test')
-        console.log(sessionItem)
-        const likeBtn = document.querySelectorAll('.likeList-cardBody-likeBox>span:nth-child(1)')
-        likeBtn.forEach((el) => {
+        // console.log(tourismApiData.likeTourspotList[0].likePeple[0])
+        // localStorage.clear()
+        // sessionStorage.clear()
+        if(localGetItem === null || sessionGetItem === null) {
+            localStorage.setItem('localtest',JSON.stringify(tourismApiData.uuid))
+            sessionStorage.setItem('sessiontest',JSON.stringify(tourismApiData.uuid))
+            // const localtest = localStorage.getItem('localtest')
+            // console.log(localtest)
+            // const sessiontest = sessionStorage.getItem('sessiontest') 
+            // console.log(sessiontest)
+        } else {
+            // const localtest = localStorage.getItem('localtest')
+            // console.log(localtest)
+            // const sessiontest = sessionStorage.getItem('sessiontest') 
+            // console.log(sessiontest)
+        }
+        const localtest = localStorage.getItem('localtest')
+        const cookie = document.cookie.split('=')[1]
+        const likeBtnAll = document.querySelectorAll('.likeList-cardBody-likeBox>span:nth-child(1)')
+        likeBtnAll.forEach((el) => {
             el.addEventListener('click', (e) => {
                 e.target.classList.toggle('on')
                 const title = e.target.nextElementSibling
@@ -54,7 +76,6 @@ window.onload = function(){
                 const titleNoMinus = parseInt(title.innerText) - 1
                 const Url = 'http://127.0.0.1:5300/like'
                 const tourspotNm = title.parentElement.previousElementSibling.innerText
-                const cookie = document.cookie.split('=')[1]
                 const onOff = e.target.className.slice(-2)
                 console.log(cookie)
                 try {
@@ -70,24 +91,15 @@ window.onload = function(){
                         data: {
                             tourspotNm : tourspotNm,
                             likeNo : titleNo ,
-                            cookie : cookie
+                            uuid : localtest ,
                         } ,
                         withCredentials: true,
                     })
-                    } catch(err) {
-                        console.log(err)
-                    }
-                })
+                } catch(err) {
+                    console.log(err)
+                }
             })
-        // window.addEventListener('unload', async (e) => {
-        //     const cookie = document.cookie.split('=')[1]
-        //     console.log(cookie)
-        //     if(cookie !== '') {
-        //         console.log('test')
-        //     } else {
-        //        e.preventDefault()
-        //     }
-        // })
+        })
     }  
     tourismApi()
 }

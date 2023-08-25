@@ -32,7 +32,9 @@ header .navbar .search-container .search {
    color: white;
    border: none;
    cursor: pointer;
-   padding: .5rem;
+   padding: .3rem;
+   height: 75%;
+   margin-top: 0.7rem;
 }
 header .navbar .search-container .search:hover {
    background: var(--secondary-color);
