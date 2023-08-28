@@ -2,17 +2,43 @@ document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk
 
 window.onload = function() {
     let tourismData
+    function listTool(i) {
+        return `
+        <div class="mapinfo-container-box">
+            <a onclick="localStorage.setItem('card-info', JSON.stringify('${tourismData[i].tourspotNm}'));location.href ='http://127.0.0.1:5500/public/html/info.html'">
+                <img src="${tourismData[i].imgUrl}" alt="">
+            </a>
+            <div class="mapinfo-container-boxBody">
+                <div class="mapinfo-container-boxTitle">
+                    <h3>${tourismData[i].tourspotNm}</h2>
+                    <span>관광지</span>
+                </div>
+                <div class="mapinfo-container-boxDescript">
+                    <span>${tourismData[i].tourspotSumm}</span>
+                    <div class="likeBox">
+                        <span class="material-symbols-outlined">thumb_up</span>
+                        <span>${tourismData[i].likeNo}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    }
     async function tourismApi() {
         const tourismUrl = await fetch('http://127.0.0.1:5300')
         tourismData = await tourismUrl.json()
         console.log(tourismData)
+        const mapinfoContainer = document.querySelector('.mapinfo-container')
+        for(let i=0; i<tourismData.length; i++) {
+            mapinfoContainer.innerHTML += listTool(i)
+        }
         const array = []
         for(let k=0; k<tourismData.length; k++) {
-            const test = {content :`<div class="customoverlay">
-            <a href="#" target="_blank">
-            <span class="title">${tourismData[k].tourspotNm}</span>
-            </a>
-            </div>`,
+            const test = {content :'<div>' +
+            ' <a href="#" target="_blank"> ' +
+            ` <span class="title">${tourismData[k].tourspotNm}</span> ` +
+            ' </a> ' +
+            '</div>',
              latlng: new kakao.maps.LatLng(tourismData[k].mapLat, tourismData[k].mapLot)}
             array.push(test)
         }
@@ -27,7 +53,6 @@ window.onload = function() {
         
         // 마커를 표시할 위치와 title 객체 배열입니다 
         var positions = array
-        console.log(positions)
         // 마커 이미지의 이미지 주소입니다
         var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
@@ -45,18 +70,17 @@ window.onload = function() {
                 image : markerImage // 마커 이미지 
             });
 
-            // var infowindow = new kakao.maps.InfoWindow({
-            //     content: positions[j].content // 인포윈도우에 표시할 내용
-            // });
-            
-            var customOverlay = new kakao.maps.CustomOverlay({
-                map: map,
-                position: positions[j].latlng,
-                content: positions[j].content,
+            var infowindow = new kakao.maps.InfoWindow({
+                content: positions[j].content // 인포윈도우에 표시할 내용
             });
+            // var customOverlay = new kakao.maps.CustomOverlay({
+            //     map: map,
+            //     position: positions[j].latlng,
+            //     content: positions[j].content,
+            // });
 
-            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, customOverlay));
-            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(customOverlay));
+            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
         }
         // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
         function makeOverListener(map, marker, infowindow) {
@@ -73,4 +97,16 @@ window.onload = function() {
         }
     }
     tourismApi()
+    const tapBtn = document.querySelectorAll('.mapinfo-taplist ul li')
+    console.log(tapBtn)
+    tapBtn.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            el.classList.toggle('active')
+        })
+    })
+    const scrollUp = document.querySelector('.scroll-up')
+    scrollUp.addEventListener('click' , (e) => {
+      window.scrollTo({top : 0 , behavior: 'smooth'})
+    })
+
 }

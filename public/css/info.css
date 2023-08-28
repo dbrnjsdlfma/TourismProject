@@ -22,6 +22,7 @@ section .detail-container .detail {
 
 section .detail-container .detail>strong {
     margin: 3rem;
+    font-size: 1.5rem;
 }
 section .detail-container .detail .detail-image {
     width: 70%;

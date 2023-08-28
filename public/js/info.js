@@ -70,4 +70,8 @@ window.onload = function() {
 
     }
     tourismApi()
+    const scrollUp = document.querySelector('.scroll-up')
+    scrollUp.addEventListener('click' , (e) => {
+      window.scrollTo({top : 0 , behavior: 'smooth'})
+    })
 }

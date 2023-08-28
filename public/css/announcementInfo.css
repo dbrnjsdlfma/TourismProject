@@ -1,0 +1,59 @@
+@import url('./global.css');
+@import url('./header.css');
+@import url('./footer.css');
+
+
+.container {
+    margin: 3rem;
+}
+
+.container h1 , .container-box {
+    width: 80%;
+    margin: 0 auto;
+}
+.container h1 { 
+    margin-bottom: 2rem ;
+}
+.container-box table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: start;
+}
+.container-box table tr {
+    height: 40px;
+    border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+.container-box table tr td:nth-child(1) {
+    background-color: #e6e6e6;
+    border-right: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+}
+.container-box table tr td:nth-child(3) {
+    background-color: #e6e6e6;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+.container-box table tr td:nth-child(4) {
+    text-align: center;
+    border-right: 1px solid #e2e2e2;
+}
+.container-body {
+    margin: 2rem 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+.container-foot table{
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid black;
+}
+.container-foot table tr:nth-child(1) {
+    border-bottom: 1px dashed #d0d0d0;
+}
+.container-foot table tr:nth-child(2) {
+    border-bottom: 1px solid black;
+
+}
+.container-foot table tr td:nth-child(1) {
+    width: 20%;
+}

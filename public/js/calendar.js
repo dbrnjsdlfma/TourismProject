@@ -2,6 +2,7 @@
       const calendarEl = document.getElementById('calendar')
       // full-calendar 생성하기
       var calendar = new FullCalendar.Calendar(calendarEl, {
+        width:'100%',
         height: '600px', // calendar 높이 설정
         expandRows: true, // 화면에 맞게 높이 재설정
         slotMinTime: '08:00', // Day 캘린더에서 시작 시간

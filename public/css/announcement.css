@@ -33,6 +33,12 @@ table thead td {
 table tbody td {
     padding: 10px;
 }
+table tbody td:nth-child(3) {
+    cursor: pointer;
+}
+table tbody td:nth-child(3) a {
+    font-weight: 700;
+}
 .write {
     display: none;
     padding: 0.7rem 1rem;

@@ -9,7 +9,6 @@
     border-bottom: 1px solid black;
     padding: 1rem;
 }
-
 .likeList-card {
     display: flex;
     width: 80%;
@@ -19,14 +18,15 @@
 }
 
 .likeList-cardImage  {
-    width: 70%;
+    width: 300px;
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 3rem;
 }
 .likeList-cardImage a {
-    width: 70%;
+    width: 100%;
     height: 80%;
 }
 .likeList-cardImage img{
@@ -35,7 +35,7 @@
     cursor: pointer;
 }
 .likeList-cardImage img:hover {
-    box-shadow: 0px 0px 8px 3px #606060;
+    box-shadow: 0px 0px 10px 0px rgba(51, 51, 51, 0.2);
 }
 .likeList-cardBody {
     margin-top: 2rem;
@@ -74,6 +74,13 @@
 }
 .likeList-cardBody-container span {
     margin-top: 1rem;
+}
+.likeList-cardBody-box {
+    display: flex;
+    margin-top: 2rem;
+}
+.likeList-cardBody-box span:nth-child(2) {
+    margin-left: 10rem;
 }
 .on {
     background-color: var(--secondary-color);

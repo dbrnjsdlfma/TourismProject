@@ -21,9 +21,11 @@ window.onload = function(){
                 </div>
                 <div class="likeList-cardBody-container">
                     <span>${tourismApiData.likeTourspotList[i].tourspotSumm}</span>
-                    <span><strong>주소 </strong> : ${tourismApiData.likeTourspotList[i].tourspotAddr}</span>
+                    <div class="likeList-cardBody-box">
+                        <span><strong>주소 </strong> : ${tourismApiData.likeTourspotList[i].tourspotAddr}</span>
+                        <span><strong>이용시간 </strong> : ${tourismApiData.likeTourspotList[i].mngTime}</span>
+                    </div>
                     <span><strong>전화번호 </strong> : ${tourismApiData.likeTourspotList[i].refadNo}</span>
-                    <span><strong>이용시간 </strong> : ${tourismApiData.likeTourspotList[i].mngTime}</span>
                     <span><strong>홈페이지 </strong> : <a href="${tourismApiData.likeTourspotList[i].urlAddr}">${tourismApiData.likeTourspotList[i].urlAddr}</a></span>
                 </div>
             </div>
@@ -102,4 +104,8 @@ window.onload = function(){
         })
     }  
     tourismApi()
+    const scrollUp = document.querySelector('.scroll-up')
+    scrollUp.addEventListener('click' , (e) => {
+      window.scrollTo({top : 0 , behavior: 'smooth'})
+    })
 }

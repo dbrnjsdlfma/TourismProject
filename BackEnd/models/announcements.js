@@ -26,6 +26,10 @@ const announcementsSchema = new Schema({ // 스키마 정의
         required : true , 
         trim : true ,
     },
+    announcementCheck: {
+        type : Number ,
+        trim : true,
+    },
     announcementCreateDate: {
         type : Date , 
         default : Date.now,

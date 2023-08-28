@@ -14,7 +14,7 @@ section {
     padding: 0;
 }
 .mapinfo {
-    width: 50%;
+    width: 40%;
 }
 .mapinfo h2 {
     width: 90%;
@@ -22,6 +22,108 @@ section {
     margin-left: 1rem ;
     border-bottom: 2px solid #585858;
 }
+.mapinfo-taplist {
+    border-bottom: 1px solid #e6e6e6;
+}
+.mapinfo-taplist ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.mapinfo-taplist ul li {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-left: 15px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.mapinfo-taplist ul li a {
+    font-weight: 700;
+}
+.mapinfo-taplist ul li:nth-child(1).active {
+    background-color: green;
+    color: white;
+}
+.mapinfo-taplist ul li:nth-child(2).active {
+    background-color: orange;
+    color: white;
+}
+.mapinfo-taplist ul li:nth-child(3).active {
+    background-color: pink;
+    color: white;
+}
+.mapinfo-taplist ul li:nth-child(4).active {
+    background-color: violet;
+    color: white;
+}
+.mapinfo-taplist ul li:nth-child(5).active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.mapinfo-container {
+    display: flex;
+    height: 595px;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+.mapinfo-container-box {
+    display: flex;
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.mapinfo-container-box:hover {
+    background-color: #f8f8f8;
+}
+.mapinfo-container-box img {
+    border: 1px solid #585858;
+    border-radius: 5px;
+    width: 130px;
+    height: 89px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.mapinfo-container-boxBody {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+.mapinfo-container-boxTitle {
+    width: 100%;
+    display: flex;
+}
+
+.mapinfo-container-boxTitle h3 {
+    margin: 0;
+    /* width: 70%; */
+}
+.mapinfo-container-boxTitle span {
+    margin-left: 1rem;
+}
+.mapinfo-container-boxDescript {
+    width: 100%;
+}
+.likeBox {
+    display: flex;
+    margin-left: 1rem;
+    justify-content: flex-end;
+}
+.likeBox span {
+    margin: 0;
+    color: #585858;
+}
+.mapinfo-container-boxDescript span {
+    color: #585858;
+}
+
 .map {
     margin: 0px auto;
 }
