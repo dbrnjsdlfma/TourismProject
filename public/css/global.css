@@ -26,11 +26,13 @@ html {
    color: black;
    overflow-x: hidden;
    scrollbar-width: none; /* FireFox */
+
 }
 
 /* 스크롤바 제거 (스크롤 기능 유지) */
 body {
    -ms-overflow-style: none; /* IE and Edge */
+
 }
 
 /* Webkit browsers */
