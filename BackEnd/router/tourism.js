@@ -68,7 +68,7 @@ router.post('/like' , async (req, res, next) => {
     const updateTourspot = await tourspotListOne.save()
     return res.json({
         code: 200,
-        messate : 'success',
+        message : 'success',
         updateTourspot
     })
 })

@@ -9,12 +9,12 @@
         slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
         // 해더에 표시할 툴바
         headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
+          // left: 'prev,next today',
+          // center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
         },
         initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-        initialDate: '2021-07-15', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
+        initialDate: '2023-08-01', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
         navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
         editable: true, // 수정 가능?
         selectable: true, // 달력 일자 드래그 설정가능

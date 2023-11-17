@@ -1,4 +1,4 @@
-document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=d2e33febd686767a3b336db01af5df1a&libraries=services'><"+"/script>")
+document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0b32ef6e2ff62f24d1bff02b8e1e9d&libraries=services'><"+"/script>")
 
 window.onload = function() {
     let tourismData

@@ -1,5 +1,5 @@
 // document.write("<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>")
-document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=312513de9e4650fe36a7193c610d0d8b&libraries=services'><"+"/script>")
+document.write("<script type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0b32ef6e2ff62f24d1bff02b8e1e9d&libraries=services'><"+"/script>")
 
 window.onload=function() {
   let offset = 0

@@ -6,4 +6,5 @@ dotenv.config()
 module.exports = {
     MONGODB_URL : process.env.MONGODB_URL ,
     JWT_SECRET : process.env.JWT_SECRET ,
+    KaKaoMap_API_Key : process.env.KaKaoMap_API_Key ,
 }
